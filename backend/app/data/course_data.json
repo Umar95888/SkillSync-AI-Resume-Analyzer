@@ -1,0 +1,113 @@
+{
+  "Python": [
+    {
+      "title": "Python for Everybody",
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/specializations/python"
+    }
+  ],
+
+  "Java": [
+    {
+      "title": "Java Programming Masterclass",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/java-the-complete-java-developer-course/"
+    }
+  ],
+
+  "C++": [
+    {
+      "title": "Beginning C++ Programming",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/beginning-c-plus-plus-programming/"
+    }
+  ],
+
+  "JavaScript": [
+    {
+      "title": "The Complete JavaScript Course",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/the-complete-javascript-course/"
+    }
+  ],
+
+  "React": [
+    {
+      "title": "React - The Complete Guide",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
+    }
+  ],
+
+  "Node.js": [
+    {
+      "title": "NodeJS - The Complete Guide",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/nodejs-the-complete-guide/"
+    }
+  ],
+
+  "SQL": [
+    {
+      "title": "SQL for Data Science",
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/learn/sql-for-data-science"
+    }
+  ],
+
+  "MongoDB": [
+    {
+      "title": "MongoDB Basics",
+      "provider": "MongoDB University",
+      "url": "https://learn.mongodb.com/learning-paths/mongodb-basics"
+    }
+  ],
+
+  "Git": [
+    {
+      "title": "Git & GitHub Bootcamp",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/git-and-github-bootcamp/"
+    }
+  ],
+
+  "GitHub": [
+    {
+      "title": "GitHub Ultimate Guide",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/github-ultimate/"
+    }
+  ],
+
+  "Docker": [
+    {
+      "title": "Docker & Kubernetes: The Practical Guide",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/docker-kubernetes-the-practical-guide/"
+    }
+  ],
+
+  "AWS": [
+    {
+      "title": "AWS Cloud Practitioner Essentials",
+      "provider": "AWS Skill Builder",
+      "url": "https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials"
+    }
+  ],
+
+  "HTML": [
+    {
+      "title": "Responsive Web Design",
+      "provider": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+    }
+  ],
+
+  "CSS": [
+    {
+      "title": "Responsive Web Design",
+      "provider": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+    }
+  ]
+}
