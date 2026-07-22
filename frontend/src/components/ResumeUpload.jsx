@@ -1,3 +1,4 @@
+import API from "../services/api";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import {
@@ -47,8 +48,8 @@ function ResumeUpload() {
   setLoading(true);
 
   // Start both at the same time
-  const uploadPromise = axios.post(
-    "http://127.0.0.1:8000/upload",
+  const uploadPromise = API.post(
+    "/upload",
     formData,
     {
       headers: {
