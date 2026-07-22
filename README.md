@@ -1,26 +1,27 @@
-# 🚀 SkillSync – AI-Based Resume Analyzer & Job Recommendation System
+# 🚀 SkillSync – AI Resume Analyzer
 
-## 📖 Overview
+An AI-powered Resume Analyzer that evaluates resumes, calculates ATS scores, identifies missing skills, recommends jobs & internships, suggests courses, generates AI-based resume summaries, and provides interview questions.
 
-SkillSync is an AI-powered web application that analyzes resumes and helps students and job seekers improve their chances of getting shortlisted. It calculates an ATS score, identifies missing skills, generates resume suggestions, and recommends jobs, internships, courses, and interview questions based on the uploaded resume.
+## 🌐 Live Demo
+
+**Frontend:** https://skill-sync-ai-resume-analyzer-omega.vercel.app
+
+**Backend API:** https://skillsync-ai-resume-analyzer-ed3n.onrender.com
 
 ---
 
 ## ✨ Features
 
-* 📄 Upload Resume (PDF & DOCX)
-* 🤖 AI Resume Analysis
+* 📄 Resume Upload (PDF/DOCX)
+* 🤖 AI Resume Summary
 * 📊 ATS Resume Score
-* 📝 AI Resume Summary
-* 💡 Resume Improvement Suggestions
-* 🛠 Missing Skills Detection
-* 💼 Job Recommendations
-* 🎓 Course Recommendations
+* 🧠 Skill Extraction
+* 📈 Skill Gap Analysis
+* 💼 Job Recommendation
+* 🎓 Course Recommendation
 * 🎤 AI Interview Questions
 * ❤️ Save Jobs
 * 📥 Download PDF Report
-* 🔍 Search & Filter Recommendations
-* 🌐 Modern Responsive UI
 
 ---
 
@@ -29,12 +30,10 @@ SkillSync is an AI-powered web application that analyzes resumes and helps stude
 ### Frontend
 
 * React.js
+* Vite
 * Tailwind CSS
 * Axios
-* Framer Motion
-* React Icons
 * React Toastify
-* React Circular Progressbar
 
 ### Backend
 
@@ -46,63 +45,64 @@ SkillSync is an AI-powered web application that analyzes resumes and helps stude
 
 * TF-IDF Vectorizer
 * Cosine Similarity
+* spaCy
 * Scikit-learn
 
-### Resume Parsing
+### Database
 
-* pdfplumber
-* python-docx
+* CSV Dataset
+
+### Deployment
+
+* Vercel
+* Render
+* GitHub
 
 ---
 
 ## 📂 Project Structure
 
-```text
 SkillSync/
-├── backend/
-│   ├── app/
-│   ├── requirements.txt
-│   └── run.py
-│
 ├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── .gitignore
-└── README.md
-```
+├── backend/
+├── README.md
+└── .gitignore
 
 ---
 
-## 🚀 Installation
+## ⚙ Installation
+
+### Clone Repository
+
+git clone https://github.com/Umar95888/SkillSync-AI-Resume-Analyzer.git
 
 ### Backend
 
-```bash
 cd backend
+
 pip install -r requirements.txt
+
 python run.py
-```
 
 ### Frontend
 
-```bash
 cd frontend
+
 npm install
+
 npm run dev
-```
 
 ---
 
-## 🔮 Future Enhancements
+## 📸 Screenshots
 
-* Authentication
-* Resume Builder
-* Cover Letter Generator
-* AI Career Chatbot
-* Admin Dashboard
-* Email Notifications
+Add screenshots of:
+
+* Landing Page
+* Resume Upload
+* ATS Score
+* Job Recommendation
+* AI Summary
 
 ---
 
@@ -112,10 +112,8 @@ npm run dev
 
 B.Tech CSE (AI & ML)
 
-United Institute of Technology, Prayagraj
+United Institute of Technology
 
 ---
 
-## 📜 License
-
-This project is developed for educational purposes only.
+## ⭐ If you like this project, don't forget to star the repository!
