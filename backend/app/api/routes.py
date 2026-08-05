@@ -1,3 +1,4 @@
+from app.services.ats_analyzer import calculate_ats_score
 from app.services.interview_questions import generate_questions
 from app.services.resume_summary import generate_resume_summary
 from fastapi import APIRouter, UploadFile, File
@@ -8,6 +9,7 @@ from app.services.resume_parser import extract_text
 from app.services.skill_extractor import extract_skills
 from app.services.recommendation import recommend_all
 from app.services.course_recommendation import recommend_courses
+from app.services.live_jobs import search_live_jobs
 
 router = APIRouter()
 
@@ -58,33 +60,15 @@ async def upload_resume(file: UploadFile = File(...)):
     recommendations = recommend_all(user_skills)
 
     # ==========================
-    # ATS Resume Score
+    # ATS Resume Analysis
     # ==========================
 
-    resume_score = 40
+    ats_result = calculate_ats_score(
+    resume_text,
+    skills
+    )
 
-    # Skill Score
-    resume_score += min(len(skills) * 3, 30)
-
-    # Projects
-    if "project" in resume_text.lower():
-        resume_score += 10
-
-    # Certifications
-    if (
-        "certificate" in resume_text.lower()
-        or "certification" in resume_text.lower()
-    ):
-        resume_score += 10
-
-    # Education
-    if (
-        "b.tech" in resume_text.lower()
-        or "bachelor" in resume_text.lower()
-    ):
-        resume_score += 10
-
-    resume_score = min(resume_score, 100)
+    resume_score = ats_result["score"]
 
     # ==========================
     # Missing Skills
@@ -164,16 +148,35 @@ async def upload_resume(file: UploadFile = File(...)):
     # ==========================
 
     return {
-        "filename": file.filename,
-        "message": "Resume uploaded successfully",
-        "resume_score": resume_score,
-        "resume_summary": resume_summary,
-        "skills": skills,
-        "missing_skills": missing_skills,
-        "course_recommendations": course_recommendations,
-        "resume_suggestions": resume_suggestions,
-        "skill_analysis": skill_analysis,
-        "skill_match_percentage": skill_match_percentage,
-        "interview_questions": interview_questions,
-        "recommendations": recommendations.to_dict(orient="records")
+    "filename": file.filename,
+    "message": "Resume uploaded successfully",
+
+    "resume_score": resume_score,
+
+    "ats_analysis": ats_result,
+
+    "resume_summary": resume_summary,
+    "skills": skills,
+    "missing_skills": missing_skills,
+    "course_recommendations": course_recommendations,
+    "resume_suggestions": resume_suggestions,
+    "skill_analysis": skill_analysis,
+    "skill_match_percentage": skill_match_percentage,
+    "interview_questions": interview_questions,
+
+    "recommendations": recommendations.to_dict(
+        orient="records"
+    )
+
+}
+@router.get("/test-live-jobs")
+def test_live_jobs():
+
+    jobs = search_live_jobs(
+        ["Python", "React", "SQL"]
+    )
+
+    return {
+        "count": len(jobs),
+        "jobs": jobs[:3]
     }

@@ -73,7 +73,14 @@ function ResumeUpload() {
 
   toast.success("Resume analyzed successfully!");
 } catch (error) {
-  console.error(error);
+
+  console.log(error);
+
+  if (error.response) {
+    console.log(error.response.data);
+    console.log(error.response.status);
+  }
+
   toast.error("Upload failed!");
 } finally {
   setLoading(false);
