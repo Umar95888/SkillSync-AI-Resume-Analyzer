@@ -141,7 +141,7 @@ python run.py
 The API normally runs at:
 
 ``` text
-http://127.0.0.1:8000
+https://skillsync-ai-resume-analyzer-ed3n.onrender.com
 ```
 
 ### 3. Frontend
