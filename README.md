@@ -290,9 +290,29 @@ screenshots/
 ├── saved-jobs.png
 └── pdf-report.png
 ```
+## 📸 Screenshots
+
+### 🏠 Landing Page
 ![SkillSync Landing Page](screenshots/landing-page.png)
 
-Then add them to this section using normal GitHub Markdown image syntax.
+### 📄 Resume Upload
+![SkillSync Resume Upload](screenshots/resume-upload.png)
+
+### 📊 ATS Resume Analysis
+![SkillSync ATS Analysis](screenshots/ats-analysis.png)
+
+### 🧠 Skill Gap Analysis
+![SkillSync Skill Gap Analysis](screenshots/skill-gap.png)
+
+### 💼 Job & Internship Recommendations
+![SkillSync Job Recommendations](screenshots/job-recommendations.png)
+
+### ❤️ Saved Jobs
+![SkillSync Saved Jobs](screenshots/saved-jobs.png)
+
+### 📑 AI Resume Report
+![SkillSync PDF Report](screenshots/pdf-report.png)
+
 
 ## 📜 License
 
