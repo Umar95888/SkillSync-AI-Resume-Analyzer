@@ -290,6 +290,7 @@ screenshots/
 ├── saved-jobs.png
 └── pdf-report.png
 ```
+![SkillSync Landing Page](screenshots/landing-page.png)
 
 Then add them to this section using normal GitHub Markdown image syntax.
 
