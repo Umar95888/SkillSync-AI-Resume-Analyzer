@@ -3,17 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import router
 
-app = FastAPI(
-    title="SkillSync: AI Based Job & Internship Recommendation System",
-    version="1.0"
-)
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "https://skillsync-ai-resume-analyzer-ed3n.onrender.com",
+        "https://skill-sync-ai-resume-analyzer-omega.vercel.app",
+        "https://skill-sync-ai-resume-analyzer-2v7n147z3.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
