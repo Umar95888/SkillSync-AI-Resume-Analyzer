@@ -56,8 +56,11 @@ async def upload_resume(file: UploadFile = File(...)):
     resume_summary = generate_resume_summary(skills)
 
     # Job Recommendation
-    user_skills = " ".join(skills)
-    recommendations = recommend_all(user_skills)
+    
+    recommendations = recommend_all(
+        resume_text,
+        skills
+    )
 
     # ==========================
     # ATS Resume Analysis
@@ -70,39 +73,42 @@ async def upload_resume(file: UploadFile = File(...)):
 
     resume_score = ats_result["score"]
 
-    # ==========================
-    # Missing Skills
-    # ==========================
+    # -----------------------------------------------------
+    # Skill Gap Analysis
+    # -----------------------------------------------------
 
     missing_skills = [
-        skill
-        for skill in REQUIRED_SKILLS
+        skill for skill in REQUIRED_SKILLS
         if skill not in skills
     ]
-    
-    # Skill Gap Analysis
+
     skill_analysis = []
 
+    matched_count = 0
+
     for skill in REQUIRED_SKILLS:
-            skill_analysis.append({
+
+        found = skill in skills
+
+        if found:
+            matched_count += 1
+
+        skill_analysis.append({
             "skill": skill,
-            "status": "Found" if skill in skills else "Missing"
+            "status": "Found" if found else "Missing"
         })
 
     skill_match_percentage = round(
-        (len(skills) / len(REQUIRED_SKILLS)) * 100
+        (matched_count / len(REQUIRED_SKILLS)) * 100
     )
-
-    if skill_match_percentage > 100:
-            skill_match_percentage = 100
-
-    # ==========================
-    # Course Recommendation
-    # ==========================
+   
+# ==========================
+# Course Recommendation
+# ==========================
 
     course_recommendations = recommend_courses(
         missing_skills
-    )
+)
 
     # ==========================
     # AI Resume Suggestions
