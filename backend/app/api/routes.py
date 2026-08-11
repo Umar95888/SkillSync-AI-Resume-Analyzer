@@ -146,39 +146,275 @@ async def upload_resume(file: UploadFile = File(...)):
 
     resume_suggestions = []
 
-    if "Docker" in missing_skills:
+    resume_text_lower = resume_text.lower()
+
+
+    # =====================================================
+    # Skill-specific suggestions
+    # =====================================================
+
+    skill_advice = {
+
+        "Python":
+            "If you know Python, add a Python project and mention the libraries or frameworks you used.",
+
+        "Java":
+            "If you know Java, mention a Java project and highlight OOP, collections, or backend experience.",
+
+        "C++":
+            "If you know C++, add a C++ project or DSA experience to demonstrate practical usage.",
+
+        "JavaScript":
+            "If you know JavaScript, mention a web project and the JavaScript features or APIs you used.",
+
+        "React":
+            "If you know React, add a React project and mention components, hooks, APIs, or state management used.",
+
+        "Node.js":
+            "If you know Node.js, mention a backend project and describe the APIs or services you developed.",
+
+        "SQL":
+            "Add SQL experience through a project and mention joins, queries, database design, or data analysis.",
+
+        "MongoDB":
+            "If you know MongoDB, mention how you used collections, queries, or aggregation in a project.",
+
+        "Git":
+            "Mention Git and GitHub usage in your projects, especially branching, commits, and collaboration.",
+
+        "Docker":
+            "If you know Docker, mention how you containerized or deployed one of your projects.",
+
+        "AWS":
+            "If you know AWS, mention the AWS services you used and explain how they were used in your project.",
+
+        "HTML":
+            "Mention HTML5 and semantic HTML when describing your frontend projects.",
+
+        "CSS":
+            "Mention responsive design, Flexbox, Grid, or other CSS techniques used in your projects.",
+
+        "TypeScript":
+            "If you know TypeScript, mention how you used types, interfaces, or generics in a project.",
+
+        "FastAPI":
+            "If you know FastAPI, mention the REST APIs, validation, or backend services you built with it.",
+
+        "Flask":
+            "If you know Flask, describe the APIs or web application you developed using Flask.",
+
+        "Django":
+            "If you know Django, mention models, ORM, authentication, or REST APIs used in your project.",
+
+        "MySQL":
+            "Mention your MySQL database experience and describe the queries, schema, or tables used.",
+
+        "PostgreSQL":
+            "Mention PostgreSQL usage and explain how you designed or queried the database.",
+
+        "Kubernetes":
+            "If you know Kubernetes, mention deployments, services, pods, or container orchestration experience.",
+
+        "Linux":
+            "Mention Linux usage if you used it for development, deployment, servers, or DevOps tasks.",
+
+        "Machine Learning":
+            "Add a machine learning project and mention the dataset, algorithm, evaluation metric, and result.",
+
+        "Deep Learning":
+            "If you have deep learning experience, mention the model architecture, dataset, framework, and result.",
+
+        "NLP":
+            "Mention an NLP project and explain preprocessing, feature extraction, model, and evaluation.",
+
+        "TensorFlow":
+            "If you used TensorFlow, mention the model, dataset, training process, and evaluation result.",
+
+        "PyTorch":
+            "If you used PyTorch, mention the model architecture, dataset, training process, and results.",
+
+        "Pandas":
+            "Mention how you used Pandas for data cleaning, transformation, analysis, or preprocessing.",
+
+        "NumPy":
+            "Mention NumPy if you used it for numerical operations, arrays, or machine learning preprocessing.",
+
+        "Scikit-learn":
+            "Mention the Scikit-learn algorithms, preprocessing techniques, and evaluation metrics used in your project."
+    }
+
+
+    # =====================================================
+    # 1. Missing important skills
+    # =====================================================
+
+    important_missing = []
+
+    for skill in missing_skills:
+
+        if skill in skill_advice:
+            important_missing.append(skill)
+
+
+    # Add maximum 2 skill-based suggestions
+    for skill in important_missing[:2]:
+
+        suggestion = skill_advice[skill]
+
+        # Only suggest it if the skill is actually missing.
+        resume_suggestions.append(suggestion)
+
+
+    # =====================================================
+    # 2. Project Section Analysis
+    # =====================================================
+
+    project_keywords = [
+        "project",
+        "projects",
+        "developed",
+        "developing",
+        "built",
+        "created",
+        "implemented"
+    ]
+
+    has_project = any(
+        keyword in resume_text_lower
+        for keyword in project_keywords
+    )
+
+    if not has_project:
+
         resume_suggestions.append(
-            "Learn Docker and add it to your resume."
+            "Add 2–3 relevant academic or personal projects with technologies, your role, and measurable results."
         )
 
-    if "AWS" in missing_skills:
-        resume_suggestions.append(
-            "Learn AWS Cloud Fundamentals."
+    else:
+
+        # Check whether technologies are mentioned near project-related content
+        technology_keywords = [
+            "python",
+            "java",
+            "javascript",
+            "react",
+            "node",
+            "sql",
+            "machine learning",
+            "tensorflow",
+            "django",
+            "flask"
+        ]
+
+        has_project_technology = any(
+            keyword in resume_text_lower
+            for keyword in technology_keywords
         )
 
-    if "Git" in missing_skills:
+        if not has_project_technology:
+
+            resume_suggestions.append(
+                "Improve your project descriptions by clearly mentioning the technologies and tools used."
+            )
+
+
+    # =====================================================
+    # 3. Quantifiable Results
+    # =====================================================
+
+    has_numbers = any(
+        char.isdigit()
+        for char in resume_text
+    )
+
+    if not has_numbers:
+
         resume_suggestions.append(
-            "Mention Git and GitHub projects."
+            "Add measurable results to your experience and projects, such as performance improvements, users, accuracy, or time saved."
         )
 
-    if "project" not in resume_text.lower():
+
+    # =====================================================
+    # 4. Experience Section
+    # =====================================================
+
+    experience_keywords = [
+        "experience",
+        "internship",
+        "intern",
+        "worked",
+        "employment"
+    ]
+
+    has_experience = any(
+        keyword in resume_text_lower
+        for keyword in experience_keywords
+    )
+
+    if not has_experience:
+
         resume_suggestions.append(
-            "Add personal or academic projects."
+            "If you have internship, freelance, training, or practical experience, add it with clear responsibilities and achievements."
         )
 
-    if (
-        "certificate" not in resume_text.lower()
-        and "certification" not in resume_text.lower()
-    ):
+
+    # =====================================================
+    # 5. Certification Section
+    # =====================================================
+
+    certification_keywords = [
+        "certificate",
+        "certification",
+        "certified",
+        "course completion"
+    ]
+
+    has_certification = any(
+        keyword in resume_text_lower
+        for keyword in certification_keywords
+    )
+
+    if not has_certification:
+
         resume_suggestions.append(
-            "Add relevant certifications."
+            "Add relevant certifications or completed technical courses if you have them."
         )
 
-    if len(skills) < 8:
+
+    # =====================================================
+    # 6. Summary / Objective
+    # =====================================================
+
+    summary_keywords = [
+        "summary",
+        "objective",
+        "profile"
+    ]
+
+    has_summary = any(
+        keyword in resume_text_lower
+        for keyword in summary_keywords
+    )
+
+    if not has_summary:
+
         resume_suggestions.append(
-            "Increase your technical skills."
+            "Add a short professional summary focused on your technical skills, projects, and career goal."
         )
 
+
+    # =====================================================
+    # 7. Avoid Too Many Suggestions
+    # =====================================================
+
+    # Keep the most useful suggestions only
+    resume_suggestions = resume_suggestions[:5]
+
+
+    # Remove duplicate suggestions
+    resume_suggestions = list(
+        dict.fromkeys(resume_suggestions)
+    )
     # ==========================
     # Response
     # ==========================

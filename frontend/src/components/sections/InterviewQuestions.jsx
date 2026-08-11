@@ -134,31 +134,22 @@ function InterviewQuestions({ interviewQuestions }) {
             {/* Accordion Header */}
 
             <button
-
               onClick={() =>
                 setOpenSkill(
-                  openSkill === index
-                    ? null
-                    : index
+                  openSkill === index ? null : index
                 )
               }
-
-              className="w-full flex justify-between items-center px-6 py-5 hover:bg-slate-700 transition"
-
+              className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-700 transition"
             >
 
-              <div>
+              <div className="text-left">
 
-                <h3 className="text-xl font-bold text-cyan-400 text-left">
-
+                <h3 className="text-xl font-bold text-cyan-400">
                   {item.skill}
-
                 </h3>
 
                 <p className="text-gray-400 text-sm mt-1">
-
-                  {item.questions.length} Question(s)
-
+                  {item.questions.length} Questions
                 </p>
 
               </div>

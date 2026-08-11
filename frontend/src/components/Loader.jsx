@@ -32,38 +32,47 @@ function Loader() {
 
       <div className="bg-slate-900 p-10 rounded-3xl border border-slate-700 w-[430px]">
 
+        {/* Loading Spinner */}
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
 
+        {/* Main Heading */}
         <h2 className="text-2xl font-bold text-center text-cyan-400">
           AI is analyzing your resume...
         </h2>
 
+        {/* Subtitle */}
         <p className="text-center text-gray-400 mt-2">
           Please wait a few seconds
         </p>
 
+        {/* Progress Section */}
         <div className="mt-8">
 
-          <div className="flex justify-between mb-2">
-
+          {/* Progress Text */}
+          <div className="flex justify-between mb-2 text-white font-medium">
             <span>Progress</span>
 
-            <span>{progress}%</span>
-
+            <span>
+              {progress}%
+            </span>
           </div>
 
-          <div className="w-full bg-slate-700 rounded-full h-4">
+          {/* Progress Bar */}
+          <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
 
             <div
               className="bg-cyan-400 h-4 rounded-full transition-all duration-700"
-              style={{ width: `${progress}%` }}
+              style={{
+                width: `${progress}%`,
+              }}
             />
 
           </div>
 
-          <div className="mt-6 text-center text-lg font-medium">
+          {/* Current Processing Step */}
+          <div className="mt-6 text-center text-lg font-medium text-white">
 
             {step}
 
