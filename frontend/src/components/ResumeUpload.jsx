@@ -245,7 +245,7 @@ function ResumeUpload() {
       ["Skills Found",
       result.skills.length],
 
-      ["Missing Skills",
+      ["Required Skills",
       result.missing_skills.length],
 
       ["Top Recommendation",
@@ -326,7 +326,7 @@ function ResumeUpload() {
 
       startY: (doc.lastAutoTable?.finalY || 20) + 10,
 
-      head: [["Missing Skills"]],
+      head: [["Required Skills"]],
 
       body:
         result.missing_skills.length > 0
@@ -821,14 +821,12 @@ doc.save("SkillSync_Report.pdf");
 
             />
 
-            {/* Missing Skills */}
+            {/* Required Skills */}
 
             <div className="mt-12">
 
               <h2 className="text-2xl font-bold">
-
-                Missing Skills
-
+                Required Skills
               </h2>
 
               <div className="mt-5 flex flex-wrap gap-3">
