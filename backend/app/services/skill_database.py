@@ -64,6 +64,7 @@ SKILLS = {
     ],
 
     "AI/ML": [
+        "Artificial Intelligence",
         "Machine Learning",
         "Deep Learning",
         "NLP",
@@ -108,10 +109,6 @@ SKILL_ALIASES = {
     "mongo": "MongoDB",
 
     "postgres": "PostgreSQL",
-
-    "gitlab": "Git",
-
-    "github": "GitHub",
 
     "tensorflow2": "TensorFlow"
 }

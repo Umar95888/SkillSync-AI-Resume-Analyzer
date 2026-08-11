@@ -1,113 +1,241 @@
 {
   "Python": [
     {
-      "title": "Python for Everybody",
-      "provider": "Coursera",
-      "url": "https://www.coursera.org/specializations/python"
+      "title": "Python for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=rfscVS0vtbw"
     }
   ],
 
-  "Java": [
+  "C": [
     {
-      "title": "Java Programming Masterclass",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/java-the-complete-java-developer-course/"
+      "title": "C Programming - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=KJgsSFOSQv0"
     }
   ],
 
   "C++": [
     {
-      "title": "Beginning C++ Programming",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/beginning-c-plus-plus-programming/"
+      "title": "C++ Programming - Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=vLnPwxZdW4Y"
+    }
+  ],
+
+  "Java": [
+    {
+      "title": "Java Programming for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=A74TOX803D0"
     }
   ],
 
   "JavaScript": [
     {
-      "title": "The Complete JavaScript Course",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/the-complete-javascript-course/"
+      "title": "JavaScript Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=PkZNo7MFNFg"
     }
   ],
 
-  "React": [
+  "TypeScript": [
     {
-      "title": "React - The Complete Guide",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
-    }
-  ],
-
-  "Node.js": [
-    {
-      "title": "NodeJS - The Complete Guide",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/nodejs-the-complete-guide/"
-    }
-  ],
-
-  "SQL": [
-    {
-      "title": "SQL for Data Science",
-      "provider": "Coursera",
-      "url": "https://www.coursera.org/learn/sql-for-data-science"
-    }
-  ],
-
-  "MongoDB": [
-    {
-      "title": "MongoDB Basics",
-      "provider": "MongoDB University",
-      "url": "https://learn.mongodb.com/learning-paths/mongodb-basics"
-    }
-  ],
-
-  "Git": [
-    {
-      "title": "Git & GitHub Bootcamp",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/git-and-github-bootcamp/"
-    }
-  ],
-
-  "GitHub": [
-    {
-      "title": "GitHub Ultimate Guide",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/github-ultimate/"
-    }
-  ],
-
-  "Docker": [
-    {
-      "title": "Docker & Kubernetes: The Practical Guide",
-      "provider": "Udemy",
-      "url": "https://www.udemy.com/course/docker-kubernetes-the-practical-guide/"
-    }
-  ],
-
-  "AWS": [
-    {
-      "title": "AWS Cloud Practitioner Essentials",
-      "provider": "AWS Skill Builder",
-      "url": "https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials"
+      "title": "TypeScript Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=30LWjhZzg50"
     }
   ],
 
   "HTML": [
     {
-      "title": "Responsive Web Design",
-      "provider": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+      "title": "Learn HTML - Full Tutorial for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=kUMe1FH4CHE"
     }
   ],
 
   "CSS": [
     {
-      "title": "Responsive Web Design",
-      "provider": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+      "title": "CSS Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=OXGznpKZ_sA"
+    }
+  ],
+
+  "React": [
+    {
+      "title": "React Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=bMknfKXIFA8"
+    }
+  ],
+
+  "Next.js": [
+    {
+      "title": "Next.js for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=KjY94sAKLlw"
+    }
+  ],
+
+  "Angular": [
+    {
+      "title": "Angular Full Tutorial Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=3qBXWUpoPHo"
+    }
+  ],
+
+  "Node.js": [
+    {
+      "title": "Node.js Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=Oe421EPjeBE"
+    }
+  ],
+
+  "Express.js": [
+    {
+      "title": "Express.js Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=SccSCuHhOw0"
+    }
+  ],
+
+  "Flask": [
+    {
+      "title": "Learn Flask for Python - Full Tutorial",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=Z1RJmh_OqeA"
+    }
+  ],
+
+  "Django": [
+    {
+      "title": "Python Django Tutorial for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=rHux0gMZ3Eg"
+    }
+  ],
+
+  "FastAPI": [
+    {
+      "title": "FastAPI Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=tLKKmouUams"
+    }
+  ],
+
+  "SQL": [
+    {
+      "title": "SQL Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=HXV3zeQKqGY"
+    }
+  ],
+
+  "MySQL": [
+    {
+      "title": "MySQL Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=7S_tz1z_5bA"
+    }
+  ],
+
+  "PostgreSQL": [
+    {
+      "title": "PostgreSQL Full Course for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=qw--VYLpxG4"
+    }
+  ],
+
+  "MongoDB": [
+    {
+      "title": "MongoDB Crash Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=-56x56UppqQ"
+    }
+  ],
+
+  "Redis": [
+    {
+      "title": "Redis Crash Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=jgpVdJB2sKQ"
+    }
+  ],
+
+  "Git": [
+    {
+      "title": "Git and GitHub for Beginners - Crash Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=RGOj5yH7evk"
+    }
+  ],
+
+  "GitHub": [
+    {
+      "title": "Git and GitHub for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=RGOj5yH7evk"
+    }
+  ],
+
+  "Docker": [
+    {
+      "title": "Docker Tutorial for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=fqMOX6JJhGo"
+    }
+  ],
+
+  "Kubernetes": [
+    {
+      "title": "Kubernetes Tutorial for Beginners",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/watch?v=X48VuDVv0do"
+    }
+  ],
+
+  "AWS": [
+    {
+      "title": "AWS Cloud Practitioner - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/results?search_query=AWS+Cloud+Practitioner+full+course+freeCodeCamp"
+    }
+  ],
+
+  "Azure": [
+    {
+      "title": "Microsoft Azure Fundamentals - Free Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/results?search_query=Azure+AZ-900+full+course+free"
+    }
+  ],
+
+  "NumPy": [
+    {
+      "title": "NumPy for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/results?search_query=NumPy+full+course+for+beginners+freeCodeCamp"
+    }
+  ],
+
+  "Pandas": [
+    {
+      "title": "Pandas for Data Analysis - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/results?search_query=Pandas+full+course+for+beginners+freeCodeCamp"
+    }
+  ],
+
+  "Machine Learning": [
+    {
+      "title": "Machine Learning for Beginners - Full Course",
+      "provider": "YouTube • Free",
+      "url": "https://www.youtube.com/results?search_query=Machine+Learning+full+course+for+beginners+freeCodeCamp"
     }
   ]
 }

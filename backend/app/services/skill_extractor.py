@@ -42,7 +42,9 @@ def extract_skills(text):
 
     for skill in get_all_skills():
 
-        if skill.lower() in text:
+        pattern = r"(?<!\w)" + re.escape(skill.lower()) + r"(?!\w)"
+
+        if re.search(pattern, text):
             found_skills.add(skill)
 
     # ----------------------------
@@ -51,7 +53,9 @@ def extract_skills(text):
 
     for alias, original in SKILL_ALIASES.items():
 
-        if alias in text:
+        pattern = r"(?<!\w)" + re.escape(alias.lower()) + r"(?!\w)"
+
+        if re.search(pattern, text):
             found_skills.add(original)
 
     return sorted(found_skills)

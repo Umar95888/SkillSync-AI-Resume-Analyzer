@@ -4,7 +4,7 @@ from app.services.resume_summary import generate_resume_summary
 from fastapi import APIRouter, UploadFile, File
 import os
 import shutil
-
+import uuid
 from app.services.resume_parser import extract_text
 from app.services.skill_extractor import extract_skills
 from app.services.recommendation import recommend_all
@@ -19,27 +19,57 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # Important skills
 REQUIRED_SKILLS = [
     "Python",
-    "Java",
     "C++",
+    "Java",
     "JavaScript",
-    "React",
-    "Node.js",
-    "SQL",
-    "MongoDB",
-    "Git",
-    "Docker",
-    "AWS",
+    "TypeScript",
+
     "HTML",
-    "CSS"
+    "CSS",
+    "React",
+    "Next.js",
+    "Angular",
+
+    "Node.js",
+    "Express.js",
+    "FastAPI",
+    "Flask",
+    "Django",
+
+    "SQL",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+
+    "Git",
+    "GitHub",
+    "Docker",
+    "Kubernetes",
+    "Linux",
+
+    "AWS",
+    "Azure",
+
+    "Machine Learning",
+    "Deep Learning",
+    "NLP",
+    "TensorFlow",
+    "PyTorch"
 ]
 
 
 @router.post("/upload")
 async def upload_resume(file: UploadFile = File(...)):
 
-    # Save Resume
-    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+    if not file.filename.lower().endswith(".pdf"):
+        return {
+            "error": "Only PDF files are allowed."
+        }
 
+    safe_filename = f"{uuid.uuid4()}.pdf"
+    file_path = os.path.join(UPLOAD_FOLDER, safe_filename)
+
+    # Save Resume
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 

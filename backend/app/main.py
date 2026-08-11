@@ -11,6 +11,7 @@ app.add_middleware(
     allow_origins=[
         "https://skill-sync-ai-resume-analyzer-omega.vercel.app",
         "https://skill-sync-ai-resume-analyzer-2v7n147z3.vercel.app",
+        "http://localhost:5173"
     ],
     allow_credentials=True,
     allow_methods=["*"],
