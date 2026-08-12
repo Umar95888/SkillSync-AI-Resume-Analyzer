@@ -276,20 +276,7 @@ The generated report contains:
 **College:** United Institute of Technology, Allahabad\
 **Academic Session:** 2023--27
 
-## 📸 Screenshots
 
-Create a `screenshots` folder in the repository and add:
-
-``` text
-screenshots/
-├── landing-page.png
-├── resume-upload.png
-├── ats-analysis.png
-├── skill-gap.png
-├── job-recommendations.png
-├── saved-jobs.png
-└── pdf-report.png
-```
 ## 📸 Screenshots
 
 ### 🏠 Landing Page
@@ -320,10 +307,6 @@ This project was developed for academic and educational purposes.
 
 ------------------------------------------------------------------------
 
-```{=html}
 <p align="center">
-```
-`<b>`{=html}Built with ❤️ by the SkillSync Team`</b>`{=html}
-```{=html}
+  <b>Built with ❤️ by the SkillSync Team</b>
 </p>
-```
