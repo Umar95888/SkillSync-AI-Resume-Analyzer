@@ -617,14 +617,6 @@ screenshots/
 
 ![ATS Resume Score](screenshots/ats-score.png)
 
-### Resume Summary
-
-![Resume Summary](screenshots/resume-summary.png)
-
-### Resume Suggestions
-
-![Resume Suggestions](screenshots/resume-suggestions.png)
-
 ### Skill Gap Analysis
 
 ![Skill Gap Analysis](screenshots/skill-gap.png)
@@ -632,10 +624,6 @@ screenshots/
 ### Job Recommendations
 
 ![Job Recommendations](screenshots/job-recommendations.png)
-
-### Interview Questions
-
-![Interview Questions](screenshots/interview-questions.png)
 
 ### Resume Analytics
 
