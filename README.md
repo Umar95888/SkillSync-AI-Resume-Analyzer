@@ -617,6 +617,14 @@ screenshots/
 
 ![ATS Resume Score](screenshots/ats-score.png)
 
+### Resume Summary
+
+![Resume Summary](screenshots/resume-summary.png)
+
+### Resume Suggestions
+
+![Resume Suggestions](screenshots/resume-suggestions.png)
+
 ### Skill Gap Analysis
 
 ![Skill Gap Analysis](screenshots/skill-gap.png)
@@ -624,6 +632,10 @@ screenshots/
 ### Job Recommendations
 
 ![Job Recommendations](screenshots/job-recommendations.png)
+
+### Interview Questions
+
+![Interview Questions](screenshots/interview-questions.png)
 
 ### Resume Analytics
 
@@ -675,21 +687,6 @@ Possible future improvements include:
 ## SkillSync
 
 **Project:** SkillSync — Resume Analysis & Job Recommendation System
-
-### Team Members
-
-- Muhammad Umar
-- Divyansh Raj
-- Sarvesh Singh
-- Roshan Srivastava
-
-### Academic Details
-
-**Department:** Computer Science and Engineering  
-**College:** United Institute of Technology, Allahabad  
-**Academic Session:** 2023–27
-
----
 
 # License
 
