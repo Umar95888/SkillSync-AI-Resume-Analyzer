@@ -1,311 +1,179 @@
 import { motion } from "framer-motion";
 import {
-  FaFileUpload,
-  FaRobot,
-  FaBriefcase,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaGithub,
-  FaLinkedin,
-  FaChartLine,
-  FaUserCheck,
-  FaGraduationCap,
-  FaClipboardCheck,
-  FaStar,
-} from "react-icons/fa";
+  FileText,
+  BarChart3,
+  Briefcase,
+  GraduationCap,
+  MessageSquare,
+  Search,
+} from "lucide-react";
+
 import Navbar from "./Navbar";
 
 function LandingPage({ onStart }) {
+  const features = [
+    {
+      icon: FileText,
+      title: "Resume Analysis",
+      description:
+        "Extract relevant skills and information from your resume.",
+    },
+    {
+      icon: BarChart3,
+      title: "ATS Analysis",
+      description:
+        "Review your resume using an ATS-style scoring approach.",
+    },
+    {
+      icon: Search,
+      title: "Skill Gap Analysis",
+      description:
+        "Identify skills that may be required for your target roles.",
+    },
+    {
+      icon: Briefcase,
+      title: "Job Recommendations",
+      description:
+        "Find job opportunities based on your extracted skills.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Course Recommendations",
+      description:
+        "Explore learning resources for improving missing skills.",
+    },
+    {
+      icon: MessageSquare,
+      title: "Interview Questions",
+      description:
+        "Practice questions related to your resume and skills.",
+    },
+  ];
+
   return (
     <>
       <Navbar onStart={onStart} />
 
-      <div className="relative overflow-hidden min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-
-        <div className="absolute top-40 left-10 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-600/20 blur-[140px] rounded-full"></div>  
+      <main className="bg-slate-50 text-slate-900">
 
         {/* Hero */}
 
-        <section 
+        <section
           id="home"
-          className="max-w-7xl mx-auto px-8 py-28">
+          className="border-b border-slate-200 bg-white"
+        >
+          <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-3xl">
 
-            {/* Left Side */}
-
-            <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-
-              <span className="bg-cyan-500/20 text-cyan-300 px-5 py-2 rounded-full border border-cyan-500/30">
-                🚀 AI Powered Resume Analyzer
-              </span>
+              <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
+                Resume Analysis Platform
+              </p>
 
               <motion.h1
-                className="text-6xl font-extrabold mt-8 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ duration: 0.5 }}
+                className="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-slate-900"
               >
-
-                Build a
-
-                <span className="text-cyan-400">
-                  {" "}Job Winning Resume
+                Understand your resume.
+                <span className="block text-blue-600">
+                  Improve your career profile.
                 </span>
-
               </motion.h1>
 
               <motion.p
-                className="text-slate-300 mt-8 text-lg leading-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="mt-6 max-w-2xl text-lg leading-8 text-slate-600"
               >
-                Upload your resume and let SkillSync analyze your skills,
-                calculate your ATS score, recommend jobs, internships,
-                courses and interview questions.
+                SkillSync analyzes your resume, identifies skills,
+                evaluates your profile and provides job, internship, course and
+                recommendations.
               </motion.p>
 
-              <button
-                onClick={onStart}
-                className="mt-10 bg-cyan-500 hover:bg-cyan-600 hover:scale-105 transition-all duration-300 px-8 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-cyan-500/30"
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-8"
               >
-                <div className="flex items-center gap-2">
-                  <span>Get Started</span>
-                  <span>🚀</span>
-                </div>
-                
-              </button>
+                <button
+                  onClick={onStart}
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                >
+                  Analyze Your Resume
+                </button>
+              </motion.div>
 
-            </motion.div>
-
-            {/* Right Side */}
-
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-              }}
-            >
-
-              <img
-                src="https://illustrations.popsy.co/gray/web-design.svg"
-                alt="AI Resume"
-                className="w-full drop-shadow-[0_0_35px_rgba(34,211,238,0.4)]"
-              />
-
-            </motion.div>
+            </div>
 
           </div>
-
         </section>
 
-        {/* Stats */}
 
-        <section className="max-w-7xl mx-auto px-8 pb-24">
+        {/* How it works */}
 
-          <div className="grid md:grid-cols-4 gap-8">
+        <section className="max-w-6xl mx-auto px-6 py-20">
 
-            {[
-              {
-                number: "10K+",
-                title: "Resumes Analyzed",
-              },
-              {
-                number: "2K+",
-                title: "Jobs Recommended",
-              },
-              {
-                number: "95%",
-                title: "ATS Accuracy",
-              },
-              {
-                number: "24/7",
-                title: "AI Support",
-              },
-            ].map((item, index) => (
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold text-blue-600">
+              PROCESS
+            </p>
 
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.15,
-                  duration: 0.5,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                }}
-                className="bg-slate-800/70 backdrop-blur-xl rounded-3xl border border-cyan-500/20 p-8 text-center shadow-xl"
-            >
+            <h2 className="mt-2 text-3xl font-bold text-slate-900">
+              How SkillSync works
+            </h2>
 
-                <h2 className="text-5xl font-extrabold text-cyan-400">
-                  {item.number}
-                </h2>
+            <p className="mt-4 text-slate-600">
+              A simple workflow for analyzing your resume and
+              understanding your career profile.
+            </p>
+          </div>
 
-                <p className="mt-4 text-slate-300">
-                  {item.title}
-                </p>
 
-            </motion.div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-        {/* How SkillSync Works */}
-
-        <section className="max-w-7xl mx-auto px-8 pb-24">
-
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16"
-        >
-          How SkillSync Works
-        </motion.h2>
-
-        <div className="grid md:grid-cols-4 gap-8">
-
-          {[
-            {
-            icon: <FaFileUpload />,
-            title: "Upload Resume",
-            desc: "Upload your PDF or DOCX resume securely.",
-            },
-            {
-              icon: <FaRobot />,
-              title: "AI Analysis",
-              desc: "AI extracts skills and analyzes your resume.",
-            },
-            {
-              icon: <FaChartLine />,
-              title: "ATS Score",
-              desc: "Get an instant ATS score with suggestions.",
-            },
-            {
-              icon: <FaUserCheck />,
-              title: "Job Match",
-              desc: "Receive matching jobs, courses and interview questions.",
-            },
-          ].map((item, index) => (
-
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-slate-800/70 backdrop-blur-xl border border-cyan-500/20 rounded-3xl p-8 text-center shadow-xl"
-            >
-
-              <div className="text-cyan-400 text-5xl mb-6 flex justify-center">
-                {item.icon}
-              </div>
-
-              <h3 className="text-2xl font-bold">
-                {item.title}
-              </h3>
-
-              <p className="text-slate-300 mt-4 leading-7">
-                {item.desc}
-              </p>
-
-            </motion.div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-        {/* Features */}
-
-        <section 
-          id="features"
-          className="max-w-7xl mx-auto px-8 pb-24">
-
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Why SkillSync?
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
 
             {[
               {
-                icon: <FaFileUpload />,
+                number: "01",
+                title: "Upload Resume",
+                description:
+                  "Upload your resume in a supported format.",
+              },
+              {
+                number: "02",
                 title: "Resume Analysis",
-                desc: "Extract skills, education and experience from your resume instantly.",
+                description:
+                  "The system extracts resume information and skills.",
               },
               {
-                icon: <FaRobot />,
-                title: "AI Resume Summary",
-                desc: "Generate a professional AI-powered summary for your resume.",
+                number: "03",
+                title: "View Results",
+                description:
+                  "Review your ATS analysis, skill gaps and recommendations.",
               },
-              {
-                icon: <FaChartLine />,
-                title: "ATS Resume Score",
-                desc: "Check how well your resume matches ATS systems with a detailed score.",
-              },
-              {
-                icon: <FaBriefcase />,
-                title: "Job Recommendations",
-                desc: "Find jobs and internships that match your skills and profile.",
-              },
-              {
-                icon: <FaGraduationCap />,
-                title: "Course Recommendations",
-                desc: "Discover courses to improve missing skills and boost your profile.",
-              },
-              {
-                icon: <FaClipboardCheck />,
-                title: "Interview Questions",
-                desc: "Practice AI-generated interview questions based on your resume.",
-              },
-            ].map((item, index) => (
+            ].map((item) => (
 
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                }}
-                className="bg-slate-800/70 backdrop-blur-lg border border-cyan-500/20 rounded-3xl p-8 text-center shadow-xl hover:border-cyan-400 transition"
+              <div
+                key={item.number}
+                className="border border-slate-200 bg-white p-6 rounded-xl"
               >
 
-                <div className="text-cyan-400 text-6xl mb-6 flex justify-center">
-                  {item.icon}
-                </div>
+                <span className="text-sm font-semibold text-blue-600">
+                  {item.number}
+                </span>
 
-                <h3 className="text-2xl font-bold">
+                <h3 className="mt-4 text-xl font-semibold text-slate-900">
                   {item.title}
                 </h3>
 
-                <p className="text-slate-300 mt-5 leading-7">
-                  {item.desc}
+                <p className="mt-3 leading-7 text-slate-600">
+                  {item.description}
                 </p>
 
-              </motion.div>
+              </div>
 
             ))}
 
@@ -313,273 +181,126 @@ function LandingPage({ onStart }) {
 
         </section>
 
-{/* Testimonials */}
 
-<section className="max-w-7xl mx-auto px-8 py-24">
+        {/* Features */}
 
-  <motion.h2
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="text-4xl font-bold text-center mb-16"
-  >
-    Trusted by Students
-  </motion.h2>
-
-  <div className="grid md:grid-cols-3 gap-8">
-
-    {[
-      {
-        name: "Rahul Sharma",
-        role: "B.Tech Student",
-        review:
-          "SkillSync improved my ATS score from 58% to 89%. The resume suggestions were very helpful for placements.",
-      },
-      {
-        name: "Priya Verma",
-        role: "Software Engineer",
-        review:
-          "Clean interface, accurate ATS score and excellent job recommendations. Highly recommended.",
-      },
-      {
-        name: "Aman Khan",
-        role: "Final Year Student",
-        review:
-          "The interview questions and recommended courses helped me prepare for my campus placements.",
-      },
-    ].map((item, index) => (
-
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.2 }}
-        whileHover={{
-          scale: 1.04,
-          y: -8,
-        }}
-        className="bg-slate-800/70 border border-cyan-500/20 rounded-3xl p-8 shadow-xl"
-      >
-
-        <div className="flex text-yellow-400 gap-1 text-lg mb-5">
-          {[...Array(5)].map((_, i) => (
-            <FaStar key={i} />
-          ))}
-        </div>
-
-        <p className="text-slate-300 leading-7 italic">
-          "{item.review}"
-        </p>
-
-        <div className="mt-8 flex items-center gap-4">
-
-          <div className="w-14 h-14 rounded-full bg-cyan-500 flex items-center justify-center text-xl font-bold">
-            {item.name.charAt(0)}
-          </div>
-
-          <div>
-
-            <h3 className="font-bold text-lg">
-              {item.name}
-            </h3>
-
-            <p className="text-cyan-400 text-sm">
-              {item.role}
-            </p>
-
-          </div>
-
-        </div>
-
-      </motion.div>
-
-    ))}
-
-  </div>
-
-</section>
-
-        {/* FAQ */}
-
-<section className="max-w-5xl mx-auto px-8 py-24">
-
-  <motion.h2
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="text-4xl font-bold text-center mb-16"
-  >
-    Frequently Asked Questions
-  </motion.h2>
-
-  <div className="space-y-6">
-
-    {[
-      {
-        q: "Is SkillSync free to use?",
-        a: "Yes. You can analyze your resume and receive recommendations for free.",
-      },
-      {
-        q: "Which resume formats are supported?",
-        a: "Currently PDF and DOCX resumes are supported.",
-      },
-      {
-        q: "How is the ATS score calculated?",
-        a: "The ATS score is calculated by analyzing your skills, resume content and matching them with industry requirements.",
-      },
-      {
-        q: "Does SkillSync store my resume?",
-        a: "No. Your uploaded resume is processed only for analysis and is not permanently stored.",
-      },
-      {
-        q: "Can I get job and internship recommendations?",
-        a: "Yes. SkillSync recommends jobs, internships, courses and interview questions based on your skills.",
-      },
-    ].map((item, index) => (
-
-      <motion.details
-        key={index}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.1 }}
-        className="bg-slate-800 rounded-2xl p-6 border border-cyan-500/20 cursor-pointer"
-      >
-
-        <summary className="font-semibold text-lg text-cyan-300">
-          {item.q}
-        </summary>
-
-        <p className="mt-4 text-slate-300 leading-7">
-          {item.a}
-        </p>
-
-      </motion.details>
-
-    ))}
-
-  </div>
-
-</section>
-
-        {/* Contact */}
         <section
-          id="contact"
-          className="bg-slate-900 border-t border-slate-800 py-24"
+          id="features"
+          className="border-y border-slate-200 bg-white"
         >
 
-        <div className="max-w-7xl mx-auto px-8">
+          <div className="max-w-6xl mx-auto px-6 py-20">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Contact Us
-          </h2>
+            <div className="max-w-2xl">
 
-        <div className="grid md:grid-cols-3 gap-10">
+              <p className="text-sm font-semibold text-blue-600">
+                FEATURES
+              </p>
 
-      {/* Email */}
+              <h2 className="mt-2 text-3xl font-bold text-slate-900">
+                Tools available in SkillSync
+              </h2>
 
-        <div className="bg-slate-800 rounded-3xl p-8 text-center hover:scale-105 transition">
+              <p className="mt-4 text-slate-600">
+                The platform combines resume analysis with
+                career-oriented recommendations.
+              </p>
 
-          <FaEnvelope className="text-5xl text-cyan-400 mx-auto mb-5" />
+            </div>
 
-          <h3 className="text-2xl font-bold">
-           Email
-          </h3>
 
-        <p className="text-slate-300 mt-4">
-          support.skillsyncai@gmail.com
-        </p>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
-      </div>
+              {features.map((feature) => {
 
-        {/* Phone */}
+                const Icon = feature.icon;
 
-        <div className="bg-slate-800 rounded-3xl p-8 text-center hover:scale-105 transition">
+                return (
+                  <div
+                    key={feature.title}
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-6"
+                  >
 
-        <FaPhoneAlt className="text-5xl text-cyan-400 mx-auto mb-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                      <Icon size={20} strokeWidth={1.8} />
+                    </div>
 
-          <h3 className="text-2xl font-bold">
-           Phone
-         </h3>
+                    <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                      {feature.title}
+                    </h3>
 
-        <p className="text-slate-300 mt-4">
-          +91 XXXXX XXXXX
-        </p>
+                    <p className="mt-2 leading-6 text-slate-600">
+                      {feature.description}
+                    </p>
 
-      </div>
+                  </div>
+                );
 
-        {/* Location */}
+              })}
 
-        <div className="bg-slate-800 rounded-3xl p-8 text-center hover:scale-105 transition">
+            </div>
 
-        <FaMapMarkerAlt className="text-5xl text-cyan-400 mx-auto mb-5" />
+          </div>
 
-          <h3 className="text-2xl font-bold">
-           Location
-          </h3>
+        </section>
 
-        <p className="text-slate-300 mt-4">
-          Prayagraj, Uttar Pradesh
-        </p>
 
-      </div>
+        {/* CTA */}
 
-    </div>
+        <section className="max-w-6xl mx-auto px-6 py-20">
 
-      {/* Social Icons */}
+          <div className="rounded-2xl bg-slate-900 px-6 py-12 text-center md:px-12">
 
-        <div className="flex justify-center gap-8 mt-16">
-
-       <a
-        href="https://github.com/supportskillsyncai"
-        target="_blank"
-        rel="noreferrer"
-        className="text-4xl text-slate-300 hover:text-cyan-400 transition"
-        >
-        <FaGithub />
-        </a>
-
-        <a
-        href="https://www.linkedin.com/in/skillsync-ai-376745422"
-        target="_blank"
-        rel="noreferrer"
-        className="text-4xl text-slate-300 hover:text-cyan-400 transition"
-        >
-          <FaLinkedin />
-        </a>
-
-      </div>
-
-    </div>
-
-    </section>
-    
-        <footer className="bg-slate-950 border-t border-slate-800 py-8">
-
-          <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
-
-            <h2 className="text-2xl font-bold">
-
-              <span className="text-cyan-400">
-                Skill
-              </span>
-
-              Sync
-
+            <h2 className="text-3xl font-bold text-white">
+              Analyze your resume
             </h2>
 
-          <p className="text-slate-400 mt-4 md:mt-0">
+            <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              Upload your resume and explore the analysis and
+              recommendations provided by SkillSync.
+            </p>
 
-            © 2026 SkillSync • Made with ❤️ by Umar
+            <button
+              onClick={onStart}
+              className="mt-7 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              Get Started
+            </button>
 
-          </p>
+          </div>
 
-        </div>
+        </section>
 
-      </footer>
 
-      </div>
+        {/* Footer */}
+
+        <footer className="border-t border-slate-200 bg-white">
+
+          <div className="max-w-6xl mx-auto px-6 py-8">
+
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+
+              <div>
+                <p className="font-semibold text-slate-900">
+                  SkillSync
+                </p>
+
+                <p className="mt-1 text-sm text-slate-500">
+                Resume analysis and career recommendations.
+                </p>
+              </div>
+
+              <p className="text-sm text-slate-500">
+                © 2026 SkillSync
+              </p>
+
+            </div>
+
+          </div>
+
+        </footer>
+
+      </main>
     </>
   );
 }

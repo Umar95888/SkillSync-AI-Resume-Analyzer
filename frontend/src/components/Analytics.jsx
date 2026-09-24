@@ -17,26 +17,6 @@ import {
   YAxis,
 } from "recharts";
 
-/*
-==============================================
-Analytics Component
-
-Purpose
--------
-Displays analytics returned by backend.
-
-Features
---------
-✔ Resume Score
-✔ Resume Rating
-✔ Skill Match
-✔ ATS Breakdown
-✔ Pie Chart
-✔ Bar Chart
-
-==============================================
-*/
-
 function Analytics({ result }) {
 
   if (!result) return null;
@@ -123,39 +103,37 @@ function Analytics({ result }) {
   }));
 
   // ==========================================
-  // Pie Colors
+  // Chart Colors
   // ==========================================
 
   const COLORS = [
 
-    "#06b6d4",
+    "#2563EB",
 
-    "#ef4444",
+    "#DC2626",
 
   ];
 
   // ==========================================
-  // Small Progress Bar Component
+  // Small Progress Bar
   // ==========================================
 
   const ProgressBar = ({ value, max }) => (
 
-    <div className="w-full bg-slate-700 rounded-full h-3">
+    <div className="w-full bg-slate-200 rounded-full h-2.5">
 
       <div
-
-        className="bg-cyan-400 h-3 rounded-full transition-all duration-500"
-
+        className="bg-blue-600 h-2.5 rounded-full transition-all duration-500"
         style={{
-          width: `${(value / max) * 100}%`,
+          width: `${Math.min((value / max) * 100, 100)}%`,
         }}
-
       />
 
     </div>
 
   );
-    // ==========================================
+
+  // ==========================================
   // Analytics UI
   // ==========================================
 
@@ -163,59 +141,87 @@ function Analytics({ result }) {
 
     <div className="mt-16">
 
-      <h2 className="text-3xl font-bold text-center mb-10">
-        Resume Analytics Dashboard
-      </h2>
+      {/* Section Heading */}
+
+      <div className="flex items-center gap-3 mb-6">
+
+        <div className="w-1 h-6 bg-blue-600 rounded-full"></div>
+
+        <div>
+
+          <h2 className="text-2xl font-bold text-slate-900">
+            Resume Analytics
+          </h2>
+
+          <p className="text-sm text-slate-500 mt-1">
+            Overview of your resume analysis results.
+          </p>
+
+        </div>
+
+      </div>
+
 
       {/* ====================================== */}
       {/* Summary Cards */}
       {/* ====================================== */}
 
-      <div className="grid md:grid-cols-4 gap-6 mb-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
 
-        <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+        {/* Resume Score */}
 
-          <h3 className="text-gray-400">
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+
+          <p className="text-sm font-medium text-slate-500">
             Resume Score
-          </h3>
+          </p>
 
-          <p className="text-4xl font-bold text-cyan-400 mt-3">
+          <p className="text-3xl font-bold text-blue-600 mt-3">
             {result.resume_score}%
           </p>
 
         </div>
 
-        <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
 
-          <h3 className="text-gray-400">
+        {/* Resume Rating */}
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+
+          <p className="text-sm font-medium text-slate-500">
             Resume Rating
-          </h3>
+          </p>
 
-          <p className="text-2xl font-bold text-green-400 mt-4">
+          <p className="text-xl font-semibold text-slate-900 mt-4">
             {rating}
           </p>
 
         </div>
 
-        <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
 
-          <h3 className="text-gray-400">
+        {/* Skill Match */}
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+
+          <p className="text-sm font-medium text-slate-500">
             Skill Match
-          </h3>
+          </p>
 
-          <p className="text-4xl font-bold text-yellow-400 mt-3">
+          <p className="text-3xl font-bold text-blue-600 mt-3">
             {skillMatch}%
           </p>
 
         </div>
 
-        <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
 
-          <h3 className="text-gray-400">
+        {/* Recommendations */}
+
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+
+          <p className="text-sm font-medium text-slate-500">
             Recommendations
-          </h3>
+          </p>
 
-          <p className="text-4xl font-bold text-pink-400 mt-3">
+          <p className="text-3xl font-bold text-slate-900 mt-3">
             {result.recommendations.length}
           </p>
 
@@ -223,13 +229,14 @@ function Analytics({ result }) {
 
       </div>
 
+
       {/* ====================================== */}
       {/* ATS Breakdown */}
       {/* ====================================== */}
 
-      <div className="bg-slate-800 rounded-2xl border border-slate-700 p-8 mb-10">
+      <div className="bg-white rounded-xl border border-slate-200 p-6 md:p-8 mb-10 shadow-sm">
 
-        <h3 className="text-2xl font-bold mb-8">
+        <h3 className="text-xl font-semibold text-slate-900 mb-7">
           ATS Breakdown
         </h3>
 
@@ -241,11 +248,11 @@ function Analytics({ result }) {
 
               <div className="flex justify-between mb-2">
 
-                <span className="font-medium">
+                <span className="text-sm font-medium text-slate-700">
                   {item.name}
                 </span>
 
-                <span>
+                <span className="text-sm text-slate-500">
                   {item.value} / {item.max}
                 </span>
 
@@ -264,20 +271,20 @@ function Analytics({ result }) {
 
       </div>
 
+
       {/* ====================================== */}
       {/* Charts */}
       {/* ====================================== */}
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-6">
+
 
         {/* Pie Chart */}
 
-        <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
 
-          <h3 className="text-xl font-bold text-center mb-6">
-
+          <h3 className="text-lg font-semibold text-slate-900 mb-5">
             Skills Distribution
-
           </h3>
 
           <ResponsiveContainer
@@ -288,29 +295,19 @@ function Analytics({ result }) {
             <PieChart>
 
               <Pie
-
                 data={pieData}
-
                 dataKey="value"
-
                 cx="50%"
-
                 cy="50%"
-
                 outerRadius={90}
-
                 label
-
               >
 
                 {pieData.map((entry, index) => (
 
                   <Cell
-
                     key={index}
-
                     fill={COLORS[index]}
-
                   />
 
                 ))}
@@ -327,14 +324,13 @@ function Analytics({ result }) {
 
         </div>
 
+
         {/* Bar Chart */}
 
-        <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+        <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
 
-          <h3 className="text-xl font-bold text-center mb-6">
-
+          <h3 className="text-lg font-semibold text-slate-900 mb-5">
             ATS Breakdown Scores
-
           </h3>
 
           <ResponsiveContainer
@@ -344,9 +340,14 @@ function Analytics({ result }) {
 
             <BarChart data={chartData}>
 
-              <XAxis dataKey="name" />
+              <XAxis
+                dataKey="name"
+                tick={{ fill: "#64748B", fontSize: 12 }}
+              />
 
-              <YAxis />
+              <YAxis
+                tick={{ fill: "#64748B", fontSize: 12 }}
+              />
 
               <Tooltip />
 
@@ -354,8 +355,8 @@ function Analytics({ result }) {
 
               <Bar
                 dataKey="Score"
-                fill="#06b6d4"
-                radius={[8, 8, 0, 0]}
+                fill="#2563EB"
+                radius={[6, 6, 0, 0]}
               />
 
             </BarChart>
@@ -363,6 +364,7 @@ function Analytics({ result }) {
           </ResponsiveContainer>
 
         </div>
+
 
       </div>
 

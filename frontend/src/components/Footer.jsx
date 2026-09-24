@@ -1,41 +1,62 @@
+// ======================================================
+// Footer.jsx
+// SkillSync V2
+// ======================================================
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
-  return (
-    <footer className="bg-slate-950 border-t border-slate-800 py-8">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
 
-        <h2 className="text-2xl font-bold">
-            <span className="text-cyan-400">Skill</span>
-            <span className="text-white">Sync</span>
+  return (
+
+    <footer className="bg-white border-t border-slate-200 py-8">
+
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+
+        {/* Logo */}
+
+        <h2 className="text-xl font-bold tracking-tight text-slate-900">
+          Skill<span className="text-blue-600">Sync</span>
         </h2>
 
-        <div className="flex gap-6 text-2xl my-4 md:my-0">
+
+        {/* Social Links */}
+
+        <div className="flex items-center gap-5">
+
           <a
             href="https://github.com/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-cyan-400"
+            aria-label="GitHub"
+            className="text-slate-500 hover:text-slate-900 transition-colors"
           >
-            <FaGithub />
+            <FaGithub size={20} />
           </a>
 
           <a
             href="https://linkedin.com/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-cyan-400"
+            aria-label="LinkedIn"
+            className="text-slate-500 hover:text-blue-600 transition-colors"
           >
-            <FaLinkedin />
+            <FaLinkedin size={20} />
           </a>
+
         </div>
 
-        <p className="text-slate-400">
-          © 2026 SkillSync • Made with ❤️ by Umar
+
+        {/* Copyright */}
+
+        <p className="text-sm text-slate-500">
+          © 2026 SkillSync. All rights reserved.
         </p>
 
       </div>
+
     </footer>
+
   );
 }
 

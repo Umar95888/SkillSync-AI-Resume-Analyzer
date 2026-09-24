@@ -1,25 +1,3 @@
-// ======================================================
-// SkillGapAnalysis.jsx
-// SkillSync V2
-// AI Skill Gap Analysis
-// ======================================================
-
-/*
-========================================================
-
-Purpose
-
-Shows
-
-✔ Overall Skill Match
-✔ Found Skills
-✔ Missing Skills
-✔ Skill Progress
-✔ AI Recommendation
-
-========================================================
-*/
-
 import {
   CheckCircle,
   XCircle,
@@ -28,159 +6,121 @@ import {
 } from "lucide-react";
 
 function SkillGapAnalysis({ result }) {
-
   if (!result) return null;
 
-  // ==========================================
-  // Backend Data
-  // ==========================================
+  const skillMatch = result.skill_match_percentage || 0;
+  const skills = result.skill_analysis || [];
 
-  const skillMatch =
-    result.skill_match_percentage || 0;
+  const foundSkills = skills.filter(
+    (item) => item.status === "Found"
+  );
 
-  const skills =
-    result.skill_analysis || [];
-
-  // ==========================================
-  // Found Skills
-  // ==========================================
-
-  const foundSkills =
-    skills.filter(
-      (item) =>
-        item.status === "Found"
-    );
-
-  // ==========================================
-  // Missing Skills
-  // ==========================================
-
-  const missingSkills =
-    skills.filter(
-      (item) =>
-        item.status === "Missing"
-    );
+  const missingSkills = skills.filter(
+    (item) => item.status === "Missing"
+  );
 
   return (
+    <div className="mt-14">
 
-    <div className="mt-16">
-
-      {/* ====================================== */}
       {/* Heading */}
-      {/* ====================================== */}
 
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
 
         <TrendingUp
-          className="text-cyan-400"
-          size={30}
+          className="text-blue-600"
+          size={24}
+          strokeWidth={1.8}
         />
 
-        <h2 className="text-3xl font-bold">
-
+        <h2 className="text-2xl font-bold text-slate-900">
           Skill Gap Analysis
-
         </h2>
 
       </div>
 
-      {/* ====================================== */}
-      {/* Overall Skill Match */}
-      {/* ====================================== */}
 
-      <div className="bg-slate-800 rounded-3xl border border-slate-700 p-8">
+      {/* Overall Skill Match */}
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
 
         <div className="flex justify-between items-center">
 
           <div>
 
-            <h3 className="text-xl font-bold">
-
+            <h3 className="text-lg font-semibold text-slate-900">
               Overall Skill Match
-
             </h3>
 
-            <p className="text-gray-400 mt-2">
-
-              Based on your resume skills.
-
+            <p className="text-sm text-slate-500 mt-1">
+              Based on the skills identified in your resume.
             </p>
 
           </div>
 
-          <div className="text-4xl font-bold text-cyan-400">
-
+          <div className="text-3xl font-bold text-blue-600">
             {skillMatch}%
-
           </div>
 
         </div>
 
-        {/* Progress */}
 
-        <div className="mt-8 w-full bg-slate-700 rounded-full h-5">
+        {/* Progress Bar */}
+
+        <div className="mt-6 w-full bg-slate-200 rounded-full h-3">
 
           <div
-
-            className="bg-cyan-400 h-5 rounded-full transition-all duration-700"
-
+            className="bg-blue-600 h-3 rounded-full transition-all duration-700"
             style={{
               width: `${skillMatch}%`,
             }}
-
           />
 
         </div>
 
       </div>
-            {/* ====================================== */}
-      {/* Skill Cards */}
-      {/* ====================================== */}
 
-      <div className="grid lg:grid-cols-2 gap-8 mt-10">
 
-        {/* ================================== */}
+      {/* Found and Missing Skills */}
+
+      <div className="grid lg:grid-cols-2 gap-6 mt-6">
+
+
         {/* Found Skills */}
-        {/* ================================== */}
 
-        <div className="bg-slate-800 rounded-3xl border border-green-500/30 p-6">
+        <div className="bg-white rounded-xl border border-slate-200 p-6">
 
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-5">
 
             <CheckCircle
-              className="text-green-400"
-              size={28}
+              className="text-green-600"
+              size={22}
+              strokeWidth={1.8}
             />
 
-            <h3 className="text-2xl font-bold">
-
+            <h3 className="text-lg font-semibold text-slate-900">
               Skills You Already Have
-
             </h3>
 
           </div>
 
+
           {foundSkills.length === 0 ? (
 
-            <p className="text-gray-400">
-
+            <p className="text-sm text-slate-500">
               No matching skills found.
-
             </p>
 
           ) : (
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
 
               {foundSkills.map((item, index) => (
 
                 <span
                   key={index}
-                  className="bg-green-500/20 border border-green-500 text-green-300 px-4 py-2 rounded-full"
+                  className="bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 rounded-md text-sm"
                 >
-
-                  ✅ {item.skill}
-
+                  {item.skill}
                 </span>
 
               ))}
@@ -191,48 +131,43 @@ function SkillGapAnalysis({ result }) {
 
         </div>
 
-        {/* ================================== */}
+
         {/* Missing Skills */}
-        {/* ================================== */}
 
-        <div className="bg-slate-800 rounded-3xl border border-red-500/30 p-6">
+        <div className="bg-white rounded-xl border border-slate-200 p-6">
 
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-5">
 
             <XCircle
-              className="text-red-400"
-              size={28}
+              className="text-red-600"
+              size={22}
+              strokeWidth={1.8}
             />
 
-            <h3 className="text-2xl font-bold">
-
+            <h3 className="text-lg font-semibold text-slate-900">
               Skills To Learn
-
             </h3>
 
           </div>
 
+
           {missingSkills.length === 0 ? (
 
-            <p className="text-green-400">
-
-              🎉 Amazing! No missing skills detected.
-
+            <p className="text-sm text-green-700">
+              No missing skills detected.
             </p>
 
           ) : (
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
 
               {missingSkills.map((item, index) => (
 
                 <span
                   key={index}
-                  className="bg-red-500/20 border border-red-500 text-red-300 px-4 py-2 rounded-full"
+                  className="bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-md text-sm"
                 >
-
-                  ❌ {item.skill}
-
+                  {item.skill}
                 </span>
 
               ))}
@@ -245,55 +180,47 @@ function SkillGapAnalysis({ result }) {
 
       </div>
 
-      {/* ====================================== */}
-      {/* AI Recommendation */}
-      {/* ====================================== */}
 
-      <div className="mt-10 bg-slate-800 rounded-3xl border border-yellow-500/30 p-8">
+      {/* Recommendation */}
 
-        <div className="flex items-center gap-3 mb-5">
+      <div className="mt-6 bg-white rounded-xl border border-slate-200 p-6">
+
+        <div className="flex items-center gap-3 mb-4">
 
           <Award
-            className="text-yellow-400"
-            size={28}
+            className="text-blue-600"
+            size={22}
+            strokeWidth={1.8}
           />
 
-          <h3 className="text-2xl font-bold">
-
-            AI Recommendation
-
+          <h3 className="text-lg font-semibold text-slate-900">
+            Skill Development Recommendation
           </h3>
 
         </div>
 
+
         {skillMatch >= 90 ? (
 
-          <p className="text-green-400 leading-8">
-
-            Excellent! Your resume already contains most of the
-            important technical skills. Continue improving your
-            projects and interview preparation.
-
+          <p className="text-slate-600 leading-7">
+            Your resume contains most of the important technical
+            skills. Continue improving your projects and interview
+            preparation.
           </p>
 
         ) : skillMatch >= 70 ? (
 
-          <p className="text-cyan-400 leading-8">
-
-            Your resume is strong. Learning the missing skills
-            will significantly improve your ATS score and job
-            recommendations.
-
+          <p className="text-slate-600 leading-7">
+            Your resume contains several relevant skills.
+            Learning the missing skills can help improve your
+            job preparation.
           </p>
 
         ) : (
 
-          <p className="text-yellow-300 leading-8">
-
-            Your resume needs more technical skills. Focus on
-            learning the missing technologies, build projects,
-            and update your resume regularly.
-
+          <p className="text-slate-600 leading-7">
+            Focus on learning the missing technical skills,
+            building projects and updating your resume regularly.
           </p>
 
         )}
@@ -301,9 +228,7 @@ function SkillGapAnalysis({ result }) {
       </div>
 
     </div>
-
   );
-
 }
 
 export default SkillGapAnalysis;

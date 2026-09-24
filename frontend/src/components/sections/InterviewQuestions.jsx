@@ -1,7 +1,7 @@
 // ======================================================
 // InterviewQuestions.jsx
 // SkillSync V2
-// AI Interview Questions
+// Interview Questions
 // ======================================================
 
 import { useState } from "react";
@@ -10,33 +10,10 @@ import {
   ChevronUp,
   ClipboardList,
   Copy,
-  CheckCircle2,
 } from "lucide-react";
 import { toast } from "react-toastify";
 
-/*
-========================================================
-
-Purpose
-
-Displays AI-generated interview questions
-based on extracted resume skills.
-
-Features
-
-✔ Accordion
-✔ Copy Questions
-✔ Icons
-✔ Better UI
-
-========================================================
-*/
-
 function InterviewQuestions({ interviewQuestions }) {
-
-  // ==========================================
-  // Open Accordion
-  // ==========================================
 
   const [openSkill, setOpenSkill] = useState(null);
 
@@ -65,70 +42,70 @@ function InterviewQuestions({ interviewQuestions }) {
 
   return (
 
-    <div className="mt-16">
+    <div className="mt-14">
 
       {/* ====================================== */}
       {/* Heading */}
       {/* ====================================== */}
 
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
 
-        <ClipboardList
-          className="text-cyan-400"
-          size={30}
-        />
+        <div className="w-1 h-6 bg-blue-600 rounded-full"></div>
 
-        <div>
+        <div className="flex items-center gap-3">
 
-          <h2 className="text-3xl font-bold">
+          <ClipboardList
+            className="text-blue-600"
+            size={22}
+            strokeWidth={1.8}
+          />
 
-            AI Interview Questions
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">
+              Interview Questions
+            </h2>
 
-          </h2>
-
-          <p className="text-gray-400 mt-1">
-
-            Practice questions generated
-            from your technical skills.
-
-          </p>
+            <p className="text-sm text-slate-500 mt-1">
+              Practice questions based on the skills identified in your resume.
+            </p>
+          </div>
 
         </div>
 
       </div>
 
+
       {/* ====================================== */}
       {/* Summary */}
       {/* ====================================== */}
 
-      <div className="bg-slate-800 rounded-2xl border border-slate-700 p-5 mb-8">
+      <div className="bg-white rounded-xl border border-slate-200 p-5 mb-6">
 
-        <p className="text-gray-300">
+        <p className="text-slate-600">
 
-          AI generated interview questions for
+          Interview questions are available for{" "}
 
-          <span className="text-cyan-400 font-bold">
-
-            {" "}
-            {interviewQuestions.length} skill(s)
-
-          </span>
+          <span className="text-blue-600 font-semibold">
+            {interviewQuestions.length} skill
+            {interviewQuestions.length !== 1 ? "s" : ""}
+          </span>.
 
         </p>
 
       </div>
 
+
       {/* ====================================== */}
       {/* Accordion */}
       {/* ====================================== */}
 
-      <div className="space-y-5">
+      <div className="space-y-4">
 
         {interviewQuestions.map((item, index) => (
 
           <div
             key={index}
-            className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden"
+            className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm"
           >
 
             {/* Accordion Header */}
@@ -139,83 +116,98 @@ function InterviewQuestions({ interviewQuestions }) {
                   openSkill === index ? null : index
                 )
               }
-              className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-700 transition"
+              className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition"
             >
 
-              <div className="text-left">
+              <div>
 
-                <h3 className="text-xl font-bold text-cyan-400">
+                <h3 className="text-lg font-semibold text-slate-900">
                   {item.skill}
                 </h3>
 
-                <p className="text-gray-400 text-sm mt-1">
-                  {item.questions.length} Questions
+                <p className="text-slate-500 text-sm mt-1">
+                  {item.questions.length} question
+                  {item.questions.length !== 1 ? "s" : ""}
                 </p>
 
               </div>
 
-              {openSkill === index ? (
 
-                <ChevronUp />
+              <div className="text-slate-500">
 
-              ) : (
+                {openSkill === index ? (
 
-                <ChevronDown />
+                  <ChevronUp
+                    size={20}
+                    strokeWidth={1.8}
+                  />
 
-              )}
+                ) : (
+
+                  <ChevronDown
+                    size={20}
+                    strokeWidth={1.8}
+                  />
+
+                )}
+
+              </div>
 
             </button>
+
 
             {/* Accordion Body */}
 
             {openSkill === index && (
 
-              <div className="px-6 pb-6">
+              <div className="border-t border-slate-200 px-5 pb-5 pt-4">
 
-                <div className="space-y-4">
+                <div className="space-y-3">
 
-                  {item.questions.map((question, i) => (
+                  {item.questions.map(
+                    (question, i) => (
 
-                    <div
+                      <div
+                        key={i}
+                        className="bg-slate-50 border border-slate-200 rounded-lg p-4 flex gap-3"
+                      >
 
-                      key={i}
+                        <div className="shrink-0 mt-1">
 
-                      className="bg-slate-700 rounded-xl p-4 flex gap-3"
+                          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
+                            {i + 1}
+                          </span>
 
-                    >
+                        </div>
 
-                      <CheckCircle2
-                        className="text-green-400 mt-1"
-                        size={18}
-                      />
 
-                      <p className="leading-7">
+                        <p className="text-slate-700 leading-7 text-sm">
+                          {question}
+                        </p>
 
-                        {question}
+                      </div>
 
-                      </p>
-
-                    </div>
-
-                  ))}
+                    )
+                  )}
 
                 </div>
+
 
                 {/* Copy Button */}
 
                 <button
-
                   onClick={() =>
                     copyQuestions(
                       item.questions
                     )
                   }
-
-                  className="mt-6 flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl font-semibold transition"
-
+                  className="mt-5 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition"
                 >
 
-                  <Copy size={18} />
+                  <Copy
+                    size={17}
+                    strokeWidth={1.8}
+                  />
 
                   Copy Questions
 
