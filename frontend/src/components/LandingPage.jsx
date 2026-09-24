@@ -10,7 +10,7 @@ import {
 
 import Navbar from "./Navbar";
 
-function LandingPage({ onStart }) {
+function LandingPage({ onStart, onHome, onFeatures }) {
   const features = [
     {
       icon: FileText,
@@ -52,7 +52,11 @@ function LandingPage({ onStart }) {
 
   return (
     <>
-      <Navbar onStart={onStart} />
+      <Navbar
+        onStart={onStart}
+        onHome={onHome}
+        onFeatures={onFeatures}
+      />
 
       <main className="bg-slate-50 text-slate-900">
 

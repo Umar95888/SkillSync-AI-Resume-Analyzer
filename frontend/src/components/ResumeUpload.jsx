@@ -40,7 +40,7 @@ import { toast } from "react-toastify";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-function ResumeUpload() {
+function ResumeUpload({ onHome, onFeatures, onStart }) {
 
   // ==========================================
   // Resume File
@@ -498,7 +498,11 @@ doc.save("SkillSync_Report.pdf");
   };
   return (
   <>
-  <Navbar />
+  <Navbar
+    onStart={onStart}
+    onHome={onHome}
+    onFeatures={onFeatures}
+  />
 
   <div className="min-h-screen bg-slate-50 py-12">
 
