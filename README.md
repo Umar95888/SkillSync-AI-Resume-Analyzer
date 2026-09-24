@@ -595,11 +595,8 @@ screenshots/
 ├── landing-page.png
 ├── resume-upload.png
 ├── ats-score.png
-├── resume-summary.png
-├── resume-suggestions.png
 ├── skill-gap.png
 ├── job-recommendations.png
-├── interview-questions.png
 ├── analytics.png
 ├── saved-jobs.png
 └── pdf-report.png
