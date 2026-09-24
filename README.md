@@ -1,96 +1,188 @@
-# SkillSync -- AI Resume Analyzer & Job Recommendation System
+# SkillSync — Resume Analysis & Job Recommendation System
 
-**SkillSync** is an AI-powered web application that analyzes resumes,
-identifies skill gaps, evaluates ATS-oriented resume quality, recommends
-learning resources and interview questions, and matches users with
-relevant job and internship opportunities.
+SkillSync is a full-stack web application that helps users analyze their resumes, understand their skills, identify skill gaps, improve resume quality, prepare for interviews, and discover relevant job and internship opportunities.
 
-## ✨ Features
+The application provides a structured resume analysis dashboard with ATS-oriented scoring, skill analysis, learning recommendations, interview questions, job recommendations, analytics, saved jobs, and downloadable PDF reports.
 
--   📄 PDF, DOC and DOCX resume upload
--   📊 ATS resume score and rating
--   🧠 Resume skill extraction
--   🎯 Skill gap analysis and skill match percentage
--   💡 AI-generated resume improvement suggestions
--   🎓 Course recommendations for missing skills
--   🎤 Personalized interview questions
--   💼 AI-based job and internship recommendations
--   🌐 Live job search using the Adzuna API
--   🔎 Search and filter recommendations
--   ❤️ Save and remove jobs using browser storage
--   📑 Professional PDF resume analysis report
--   💧 SkillSync watermark on generated reports
+---
 
-## 🛠 Tech Stack
+## Features
+
+### Resume Analysis
+
+- PDF, DOC, and DOCX resume upload
+- Resume text extraction
+- ATS-oriented resume score
+- Resume rating
+- Resume summary
+- Extracted skills
+- Required/missing skills
+- Skill match percentage
+
+### Resume Improvement
+
+- Resume improvement suggestions
+- Skill gap analysis
+- Learning/course recommendations
+- Personalized interview questions based on identified skills
+
+### Job & Internship Recommendations
+
+- Recommended jobs and internships
+- Search by job title or company
+- Filter jobs and internships
+- Match opportunities with resume skills
+- Save jobs
+- Remove saved jobs
+
+### Resume Analytics
+
+The analytics dashboard provides:
+
+- Resume score
+- Resume rating
+- Skill match percentage
+- Number of recommendations
+- ATS component breakdown
+- Skills distribution
+- ATS breakdown chart
+
+### PDF Report
+
+Users can download a structured resume analysis report containing:
+
+- Resume score
+- ATS rating
+- Skill match percentage
+- Extracted skills
+- Required skills
+- Resume suggestions
+- Recommended jobs
+- SkillSync watermark
+
+---
+
+## Application Workflow
+
+```text
+User
+  |
+  v
+Landing Page
+  |
+  v
+Resume Upload
+  |
+  v
+FastAPI Backend
+  |
+  +-------------------------+
+  |                         |
+  v                         v
+Resume Text Extraction   Skill Extraction
+  |                         |
+  +------------+------------+
+               |
+               v
+        Resume Analysis
+               |
+       +-------+-------+
+       |       |       |
+       v       v       v
+      ATS   Skill Gap  Suggestions
+    Analysis Analysis
+       |       |       |
+       +-------+-------+
+               |
+               v
+     Courses & Interview
+          Questions
+               |
+               v
+      Job / Internship
+       Recommendations
+               |
+               v
+      Analysis Dashboard
+         |
+   +-----+------+------+
+   |            |      |
+   v            v      v
+Analytics    Saved   PDF Report
+             Jobs
+```
+
+---
+
+## Main Dashboard Sections
+
+After a resume is successfully analyzed, SkillSync displays the following sections:
+
+1. **ATS Resume Score**
+2. **Resume Summary**
+3. **Resume Suggestions**
+4. **Required Skills**
+5. **Extracted Skills**
+6. **Recommended Courses**
+7. **Skill Gap Analysis**
+8. **Recommended Jobs & Internships**
+9. **Interview Questions**
+10. **Resume Analytics**
+11. **Saved Jobs**
+12. **Downloadable PDF Report**
+
+---
+
+## Tech Stack
 
 ### Frontend
 
--   React
--   JavaScript
--   Tailwind CSS
--   Axios
--   Lucide React
--   React Circular Progressbar
--   jsPDF
--   jsPDF-AutoTable
--   React Toastify
+- React
+- JavaScript
+- Vite
+- Tailwind CSS
+- Axios
+- Lucide React
+- Framer Motion
+- React Circular Progressbar
+- Recharts
+- React Toastify
+- jsPDF
+- jsPDF-AutoTable
 
 ### Backend
 
--   Python
--   FastAPI
--   Uvicorn
--   PyPDF2
--   Requests
--   Python-dotenv
+- Python
+- FastAPI
+- Uvicorn
+- PyPDF2
+- Requests
+- Python-dotenv
 
-### AI / NLP
+### Data & Processing
 
--   Natural Language Processing (NLP)
--   Skill extraction
--   Text similarity
--   TF-IDF / similarity-based matching
--   RapidFuzz-based text similarity where applicable
+- CSV-based job and internship data
+- Resume text extraction
+- Skill extraction
+- Text matching
+- Similarity-based recommendation logic
+- ATS-oriented resume analysis
 
-### Data
+---
 
--   CSV-based job and internship datasets
--   Adzuna API for live job data
+## Project Structure
 
-## 🏗️ System Flow
-
-``` text
-User
-  ↓
-React Frontend
-  ↓
-FastAPI Backend
-  ↓
-Resume Parser
-  ↓
-Skill Extraction + ATS Analysis
-  ↓
-Skill Gap + Resume Suggestions
-  ↓
-Job / Internship Recommendation Engine
-  ├── CSV Dataset
-  └── Adzuna Live Jobs API
-  ↓
-Results Dashboard
-  ↓
-PDF Report / Save Jobs
-```
-
-## 📂 Project Structure
-
-``` text
+```text
 SkillSync/
+│
 ├── backend/
 │   ├── app/
+│   │   ├── data/
 │   │   ├── routes/
 │   │   ├── services/
 │   │   ├── uploads/
 │   │   └── ...
+│   │
 │   ├── requirements.txt
 │   └── run.py
 │
@@ -98,215 +190,525 @@ SkillSync/
 │   ├── src/
 │   │   ├── assets/
 │   │   ├── components/
-│   │   ├── pages/
+│   │   ├── sections/
 │   │   ├── services/
 │   │   └── ...
+│   │
 │   ├── package.json
 │   └── ...
 │
 └── README.md
 ```
 
-## ⚙️ Installation
+---
 
-### 1. Clone the repository
+# Installation & Setup
 
-``` bash
+## 1. Clone the Repository
+
+```bash
 git clone https://github.com/Umar95888/SkillSync-AI-Resume-Analyzer.git
 cd SkillSync-AI-Resume-Analyzer
 ```
 
-### 2. Backend
+---
 
-``` bash
+## 2. Backend Setup
+
+Navigate to the backend directory:
+
+```bash
 cd backend
+```
+
+Create a Python virtual environment:
+
+```bash
 python -m venv venv
+```
+
+### Windows
+
+Activate the virtual environment:
+
+```bash
 venv\Scripts\activate
+```
+
+Install the required dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Create `backend/.env`:
+If the project uses external API credentials, create a `.env` file inside the backend directory.
 
-``` env
+Example:
+
+```env
 ADZUNA_APP_ID=your_adzuna_app_id
 ADZUNA_APP_KEY=your_adzuna_app_key
 ```
 
 Run the backend:
 
-``` bash
+```bash
 python run.py
 ```
 
-The API normally runs at:
+The backend normally runs locally at:
 
-``` text
-https://skillsync-ai-resume-analyzer-ed3n.onrender.com
+```text
+http://127.0.0.1:8000
 ```
 
-### 3. Frontend
+---
 
-Open another terminal:
+## 3. Frontend Setup
 
-``` bash
+Open a new terminal and navigate to the frontend:
+
+```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Open the local URL shown by Vite.
+Open the local URL displayed by Vite in your browser.
 
-## 🔐 Environment Variables
+---
 
-Never commit API credentials to GitHub.
+# Environment Variables
 
-Add `.env` to `.gitignore`:
+API credentials and other sensitive configuration values should not be committed to GitHub.
 
-``` text
+Keep environment files excluded through `.gitignore`.
+
+Example:
+
+```text
 .env
+.env.*
 ```
 
-## 🔄 How SkillSync Works
+If an external API is configured, add its credentials to your local environment file.
 
-1.  User uploads a resume.
-2.  Resume text is extracted.
-3.  Technical skills are detected.
-4.  ATS-oriented score is calculated.
-5.  Missing skills are identified.
-6.  Resume suggestions are generated.
-7.  Courses and interview questions are recommended.
-8.  Jobs and internships are matched against the resume.
-9.  Live jobs are fetched when available.
-10. Results are shown in the dashboard.
-11. Users can save jobs or download a PDF report.
+Example:
 
-## 🧠 Recommendation Approach
+```env
+ADZUNA_APP_ID=your_app_id
+ADZUNA_APP_KEY=your_app_key
+```
 
-The recommendation engine compares resume information with job
-information using:
+---
 
--   Resume text
--   Extracted skills
--   Job description
--   Required job skills
--   Matched skills
--   Missing skills
--   Text similarity
+# How SkillSync Works
 
-Opportunities are scored and ranked according to their estimated
-relevance to the resume.
+### Step 1 — Resume Upload
 
-## 🌐 Live Job Search
+The user uploads a resume in PDF, DOC, or DOCX format.
 
-SkillSync supports live job retrieval through the Adzuna Jobs API.
+The application validates:
 
-Live results can include:
+- File type
+- File size
 
--   Job title
--   Company
--   Location
--   Salary
--   Description
--   Application link
--   Category
--   Contract type
--   Contract time
+The current frontend allows files up to **5 MB**.
 
-If live retrieval is unavailable, the project can use its dataset-based
-recommendation flow.
+### Step 2 — Resume Processing
 
-## 📑 PDF Report
+The frontend sends the uploaded resume to the FastAPI backend.
 
-The generated report contains:
+The backend extracts readable text from the document.
 
--   ATS Resume Score
--   ATS Rating
--   Skill Match Percentage
--   Extracted Skills
--   Missing Skills
--   AI Resume Suggestions
--   Top Job Recommendations
--   SkillSync watermark
+### Step 3 — Skill Extraction
 
-## 🎯 Objectives
+The extracted resume text is processed to identify relevant technical skills.
 
--   Automate resume analysis.
--   Help users understand ATS-oriented resume quality.
--   Identify missing technical skills.
--   Recommend learning resources.
--   Generate personalized interview questions.
--   Recommend relevant jobs and internships.
--   Provide live job opportunities when available.
--   Generate an easy-to-read analysis report.
+### Step 4 — ATS-Oriented Analysis
 
-## 🚧 Limitations
+SkillSync calculates an application-specific resume score using factors implemented in the project.
 
--   ATS scoring is an estimation and is not an official score from a
-    specific company's ATS.
--   Live job availability depends on the external API.
--   Recommendation quality depends on the available job data.
--   Resume parsing may be less accurate for complex or image-based
-    resumes.
--   Results depend on the information provided by the resume and
-    available data sources.
+The dashboard displays the score and corresponding rating.
 
-## 🔮 Future Enhancements
+### Step 5 — Skill Gap Analysis
 
--   User authentication and profiles
--   Resume history
--   Database integration
--   Resume comparison
--   AI resume rewriting
--   AI career assistant
--   Personalized learning paths
--   Job alerts and notifications
--   Additional real-time job sources
--   Advanced analytics
+The identified resume skills are compared with required skills.
 
-## 👥 Team
+The user can see:
 
-**Project:** SkillSync -- AI Resume Analyzer & Job Recommendation System
+- Skills already identified
+- Skills that may need to be developed
+- Overall skill match percentage
 
--   Muhammad Umar
--   Divyansh Raj
--   Sarvesh Singh
--   Roshan Srivastava
+### Step 6 — Resume Suggestions
 
-**Department:** Computer Science and Engineering\
-**College:** United Institute of Technology, Allahabad\
-**Academic Session:** 2023--27
+The application provides suggestions related to improving the resume based on the analysis results.
 
+### Step 7 — Learning Recommendations
 
-## 📸 Screenshots
+Courses and learning resources are displayed for relevant missing skills.
 
-### 🏠 Landing Page
+### Step 8 — Interview Preparation
+
+Interview questions are grouped according to the skills identified from the resume.
+
+Users can expand a skill and copy its questions for practice.
+
+### Step 9 — Job Recommendations
+
+The application displays relevant job and internship opportunities.
+
+Users can:
+
+- Search opportunities
+- Filter jobs
+- Filter internships
+- Save jobs
+- Remove saved jobs
+
+### Step 10 — Analytics
+
+The analytics section provides a visual overview of the resume analysis.
+
+### Step 11 — PDF Report
+
+Users can download a structured PDF report containing important analysis results and job recommendations.
+
+---
+
+# ATS-Oriented Resume Analysis
+
+The resume score displayed by SkillSync is an **application-specific ATS-oriented estimate**.
+
+It is not an official score provided by a particular company's Applicant Tracking System (ATS).
+
+The current analysis considers factors implemented in the project such as:
+
+- Skills
+- Projects
+- Resume sections
+- Contact information
+- Action words
+
+The dashboard also displays the individual component scores used in the analysis.
+
+---
+
+# Skill Gap Analysis
+
+SkillSync compares the skills identified from the uploaded resume with the required skills available in the application's recommendation data.
+
+The Skill Gap Analysis section provides:
+
+### Skills You Already Have
+
+Skills identified from the uploaded resume.
+
+### Skills To Learn
+
+Skills that are present in the required skill set but were not identified in the resume.
+
+### Skill Match
+
+A percentage-based overview of the match between the identified resume skills and the required skills.
+
+---
+
+# Recommended Courses
+
+SkillSync provides learning resources for relevant missing skills.
+
+Each recommendation can contain:
+
+- Skill name
+- Course title
+- Course provider
+- Course link
+
+Users can open a course directly from the application using the **View Course** button.
+
+---
+
+# Recommended Jobs & Internships
+
+The job recommendation section displays opportunities matched with the information extracted from the resume.
+
+Users can search by:
+
+```text
+Job Title
+Company
+```
+
+Available filters include:
+
+```text
+All
+Jobs
+Internships
+```
+
+Users can also save relevant opportunities for later reference.
+
+---
+
+# Interview Questions
+
+Interview questions are organized by skill.
+
+For each skill, users can:
+
+- Expand the skill section
+- View the available questions
+- See the number of questions
+- Copy questions to the clipboard
+
+This allows users to practice questions related to the skills identified from their resume.
+
+---
+
+# Resume Analytics
+
+The analytics dashboard provides a visual summary of the analysis results.
+
+It includes:
+
+### Resume Score
+
+The overall resume score generated by the application's ATS-oriented analysis.
+
+### Resume Rating
+
+The rating associated with the resume score.
+
+### Skill Match
+
+The percentage-based skill match calculated by the application.
+
+### Recommendations
+
+The number of available job recommendations.
+
+### ATS Breakdown
+
+Individual analysis components are displayed with their corresponding scores.
+
+### Skills Distribution
+
+A visual representation of identified and missing skills.
+
+### ATS Breakdown Scores
+
+A chart displaying the individual ATS analysis component scores.
+
+---
+
+# Saved Jobs
+
+Users can save recommended jobs for later review.
+
+Saved jobs are stored in the browser using:
+
+```text
+localStorage
+```
+
+Users can:
+
+- Save a job
+- View saved jobs
+- Remove a saved job
+
+Saved jobs are browser-specific and are not synchronized across different devices.
+
+---
+
+# PDF Resume Analysis Report
+
+SkillSync generates a downloadable PDF report using the analysis results.
+
+The report can contain:
+
+- Resume overview
+- ATS resume score
+- ATS rating
+- Skill match percentage
+- Skills found
+- Required skills
+- Resume summary
+- Resume suggestions
+- Recommended jobs
+- SkillSync watermark
+
+The generated report is named:
+
+```text
+SkillSync_Report.pdf
+```
+
+---
+
+# User Interface
+
+The current interface follows a clean professional design with:
+
+- White cards
+- Slate-based typography
+- Blue primary actions
+- Subtle borders
+- Responsive layouts
+- Minimal animations
+- Lucide icons
+- Structured dashboard sections
+
+The application includes:
+
+- Landing page
+- Resume upload interface
+- Resume analysis dashboard
+- Job search and filtering
+- Analytics
+- Saved jobs
+- PDF report generation
+
+---
+
+# Screenshots
+
+> Add screenshots from the **current version** of SkillSync to the `screenshots` folder.
+
+Recommended screenshot structure:
+
+```text
+screenshots/
+├── landing-page.png
+├── resume-upload.png
+├── ats-score.png
+├── resume-summary.png
+├── resume-suggestions.png
+├── skill-gap.png
+├── job-recommendations.png
+├── interview-questions.png
+├── analytics.png
+├── saved-jobs.png
+└── pdf-report.png
+```
+
+### Landing Page
+
 ![SkillSync Landing Page](screenshots/landing-page.png)
 
-### 📄 Resume Upload
-![SkillSync Resume Upload](screenshots/resume-upload.png)
+### Resume Upload
 
-### 📊 ATS Resume Analysis
-![SkillSync ATS Analysis](screenshots/ats-analysis.png)
+![Resume Upload](screenshots/resume-upload.png)
 
-### 🧠 Skill Gap Analysis
-![SkillSync Skill Gap Analysis](screenshots/skill-gap.png)
+### ATS Resume Score
 
-### 💼 Job & Internship Recommendations
-![SkillSync Job Recommendations](screenshots/job-recommendations.png)
+![ATS Resume Score](screenshots/ats-score.png)
 
-### ❤️ Saved Jobs
-![SkillSync Saved Jobs](screenshots/saved-jobs.png)
+### Resume Summary
 
-### 📑 AI Resume Report
-![SkillSync PDF Report](screenshots/pdf-report.png)
+![Resume Summary](screenshots/resume-summary.png)
 
+### Resume Suggestions
 
-## 📜 License
+![Resume Suggestions](screenshots/resume-suggestions.png)
+
+### Skill Gap Analysis
+
+![Skill Gap Analysis](screenshots/skill-gap.png)
+
+### Job Recommendations
+
+![Job Recommendations](screenshots/job-recommendations.png)
+
+### Interview Questions
+
+![Interview Questions](screenshots/interview-questions.png)
+
+### Resume Analytics
+
+![Resume Analytics](screenshots/analytics.png)
+
+### Saved Jobs
+
+![Saved Jobs](screenshots/saved-jobs.png)
+
+### PDF Report
+
+![PDF Report](screenshots/pdf-report.png)
+
+---
+
+# Limitations
+
+- The ATS score is an application-specific estimate and should not be treated as an official score from a company's ATS.
+- Resume parsing may be less accurate for complex, scanned, or image-heavy documents.
+- Recommendation quality depends on the available resume and job data.
+- Job availability depends on the configured data source.
+- Results can vary depending on the content and structure of the uploaded resume.
+- Saved jobs are stored locally in the browser.
+- External API availability can affect live job results.
+
+---
+
+# Future Enhancements
+
+Possible future improvements include:
+
+- User authentication
+- User profiles
+- Resume history
+- Database integration
+- Resume comparison
+- Resume rewriting assistance
+- Personalized learning paths
+- Job alerts and notifications
+- Additional live job sources
+- Advanced analytics
+- Improved resume parsing
+- More comprehensive job matching
+
+---
+
+# Team
+
+## SkillSync
+
+**Project:** SkillSync — Resume Analysis & Job Recommendation System
+
+### Team Members
+
+- Muhammad Umar
+- Divyansh Raj
+- Sarvesh Singh
+- Roshan Srivastava
+
+### Academic Details
+
+**Department:** Computer Science and Engineering  
+**College:** United Institute of Technology, Allahabad  
+**Academic Session:** 2023–27
+
+---
+
+# License
 
 This project was developed for academic and educational purposes.
 
-------------------------------------------------------------------------
+---
 
 <p align="center">
-  <b>Built with ❤️ by the SkillSync Team</b>
+  Built by the SkillSync Team
 </p>
